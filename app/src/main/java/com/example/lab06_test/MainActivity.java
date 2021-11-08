@@ -1,11 +1,11 @@
 package com.example.lab06_test;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
-import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -13,7 +13,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends FragmentActivity {
 
-    private final LatLng mDestinationLatLng = new LatLng(-33.8523341, 151.2106085);
+    private FusedLocationProviderClient mFusedLocationProviderClient;
+    private final LatLng mDestinationLatLng = new LatLng(43.0757339, -89.4040064);
     private GoogleMap mMap;
 
     @Override
@@ -25,5 +26,6 @@ public class MainActivity extends FragmentActivity {
             mMap = googleMap;
             googleMap.addMarker(new MarkerOptions().position(mDestinationLatLng).title("Destination"));
         });
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
     }
 }
