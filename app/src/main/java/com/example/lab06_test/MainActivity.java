@@ -34,7 +34,7 @@ public class MainActivity extends FragmentActivity {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_map);
         mapFragment.getMapAsync(googleMap -> {
             mMap = googleMap;
-            googleMap.addMarker(new MarkerOptions().position(mDestinationLatLng).title("Destination"));
+            googleMap.addMarker(new MarkerOptions().position(mDestinationLatLng).title("Bascom Hall"));
             displayMyLocation();
         });
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
